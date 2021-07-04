@@ -38,8 +38,8 @@ def randomSampling():
 
     a = 0 
     b = 5
-
-    x = 5 
+    
+    x = np.arange(a,b+0.1,0.1)
     max_Px = 3 * x / 5 + 2
 
     M = 0 # dots inside rectangle assumed
@@ -56,7 +56,7 @@ def randomSampling():
 
         Y_value = 3 * x / 5 + 2
 
-        if(Y_value >= y):
+        if(y <= Y_value):
             M = M + 1
             x_region.append(i)
             y_region.append(i)
@@ -65,10 +65,12 @@ def randomSampling():
         y_total[i] = y
     Area = max_Px * (b - a)* M / N
     print(Area)
-    plt.plot(x_region, y_region, '.' , color='green')
-    plt.plot(x_total,y_total, '.', color='blue')
+    plt.plot(x_region, y_region, '.', color='green')
+    plt.plot(x_total, y_total, '.', color='blue')
     plt.xlabel("x")
     plt.ylabel("y")
     plt.show()
 
 randomSampling()
+
+
